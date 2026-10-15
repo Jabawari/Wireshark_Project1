@@ -21,27 +21,32 @@
 <h2>Step-by-step Answer</h2>
 <h3>Step 1: Finding the IP of the infected</h3>
 <p>Go to Statistics then Conversation. Due to the irregular amount of data being transferred from 10.2.28.88 and the transactions being over TCP, we can suspect that this is the infected device.</p>
-<!--Insert the 2 photo for step 1-->
+<img src = "https://github.com/Jabawari/Wireshark_Project1/blob/071b09f194b3661eacec0c8a086f3583aa22409d/Screenshot%202026-10-04%20193333.png" alt="Alt text" width = "500">
+<img src = "https://github.com/Jabawari/Wireshark_Project1/blob/071b09f194b3661eacec0c8a086f3583aa22409d/Screenshot%202026-10-04%20194157.png" alt="Alt text" width = "500">
 
 <h3>Step 2: Finding the MAC address of the infected</h3>
 <p>Using nbns filter to look for more details regarding the infected IP, we can find the MAC address as the source. In Wireshark, NBNS stands for NetBIOS Name Service, a legacy protocol used to map computer names to IP addresses on a local network.</p>
-<!--Image for step 2-->
+<img src = "https://github.com/Jabawari/Wireshark_Project1/blob/071b09f194b3661eacec0c8a086f3583aa22409d/Screenshot%202026-10-04%20210753.png" alt="Alt text" width = "500">
 
 <h3>Step 3: Finding the user account name of the infected</h3>
 <p>Using the Kerberos.CNameString to find the hostame. This filter is used in Wireshark to find user account names because it maps to the Client Name (CName) field inside Kerberos authentication request packets (AS-REQ), which explicitly contains the plaintext username attempting to log into an Active Directory domain.</p>
+<img src = "https://github.com/Jabawari/Wireshark_Project1/blob/071b09f194b3661eacec0c8a086f3583aa22409d/Screenshot%202026-10-04%20211919.png" alt="Alt text" width = "500">
 
 <h3>Step 4: Finding the Hostname of the infected</h3>
 <p>Using the Kerberos.CNameString, we can also find the Hostname of the Windows client.</p>
+<img src = "https://github.com/Jabawari/Wireshark_Project1/blob/071b09f194b3661eacec0c8a086f3583aa22409d/Screenshot%202026-10-04%20214111.png" alt="Alt text" width = "500">
 
 <h3>Step 5: Finding the Full Name of the user</h3>
 <p>Since we have found that the username is brolf, we can make a guess. Using that info, we can try some name to search. In the screenshot, I used ‘Rolf’ as the string to search inside the packets.</p>
+<img src = "https://github.com/Jabawari/Wireshark_Project1/blob/071b09f194b3661eacec0c8a086f3583aa22409d/Screenshot%202026-10-04%20212925.png" alt="Alt text" width = "500">
 
 <h2>Answer</h2>
 <p>IP Address: <strong>10.2.28.88</strong></p>
 <p>MAC Address: <strong>Intel_b2:4d:ad</strong></p>
 <p>User account name: <strong>brolf</strong></p>
-<p>Name of the user: <strong>Becka Rolf</strong></p>
 <p>Hostname of Windows client: <strong>DESKTOP-TEYQ2NR</strong></p>
+<p>Name of the user: <strong>Becka Rolf</strong></p>
+
 
 <h2>What I have learned :bulb:</h2>
 <ul>
